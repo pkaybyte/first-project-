@@ -153,14 +153,32 @@ section h2 {
   font-size: 1.25rem;
 }
 
+.services-grid {
+  display: flex;
+  flex-direction: row;        
+  justify-content: center;    
+  gap: 20px;                 
+  flex-wrap: wrap;         
+  margin-top: 30px;
+}
+
 .card {
-  background-color: #f4f4f4;
-  padding: 1rem;
-  margin: 1rem;
-  border-radius: 5px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;          
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  width: 250px;         
+}
+
+.card-container {
+  flex: 1.5;  
+  padding: 30px;
+  
+  /* Optional: Center the text vertically */
   display: flex;
   flex-direction: column;
+  justify-content: center;
 }
 
 .portfolio-section {
@@ -178,12 +196,21 @@ section h2 {
 .portfolio-section p {
   font-size: 1.25rem;
 }
+
+.portfolio-grid {
+  display: flex;
+  flex-direction: row;        
+  justify-content: center;    
+  gap: 20px;                 
+  flex-wrap: wrap;         
+  margin-top: 30px;
+}
 /* Footer Styles */
 footer {
   background-color: #000000;
   color: crimson;
   text-align: center;
-  padding: 1rem 0;
+  padding: 1rem 0;    
   margin-top: 2rem;
 }
  
