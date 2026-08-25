@@ -120,6 +120,64 @@ section h2 {
   justify-content: center;
   display: flex;
 }
+
+.social-icons {
+  display: flex;
+  padding: 0;
+  margin-left: 8.5px;
+  margin-right: 8.5px;
+  color: black;
+  font-size: 2rem;
+  text-decoration: none;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.social-icons:hover {
+  transform: scale(2);
+  color: crimson;
+}
+
+.services-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+}
+
+.services-section h2 {
+  font-size: 5rem;
+}
+
+.services-section p {
+  font-size: 1.25rem;
+}
+
+.card {
+  background-color: #f4f4f4;
+  padding: 1rem;
+  margin: 1rem;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+}
+
+.portfolio-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+}
+
+.portfolio-section h2 {
+  font-size: 5rem;
+}
+
+.portfolio-section p {
+  font-size: 1.25rem;
+}
 /* Footer Styles */
 footer {
   background-color: #000000;
@@ -128,33 +186,4 @@ footer {
   padding: 1rem 0;
   margin-top: 2rem;
 }
-
-/* Button Styles */
-button {
-  background-color: #333;
-  color: white;
-  padding: 0.5rem 1rem;
-  border: none;
-  border-radius: 3px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-button:hover {
-  background-color: #555;
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-  main {
-    padding: 0 1rem;
-  }
-  
-  section {
-    padding: 1rem;
-  }
-  
-  header h1 {
-    font-size: 1.5rem;
-  }
-}
+ 
