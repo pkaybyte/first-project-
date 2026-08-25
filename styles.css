@@ -1,0 +1,160 @@
+/* Global Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  line-height: 1.6;
+  color: #333;
+  background-color: #f4f4f4;
+}
+
+/* Header Styles */
+header {
+  background-color: #000000;
+  color: white;
+  padding: 1rem 0;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+  font-size: 2rem;
+  margin: 0;
+  text-align: center;
+}
+
+/* Navigation Styles */
+nav {
+  background-color:#000000;
+}
+
+nav ul {
+  list-style:none;
+  margin:0;
+  padding:0;
+  display:flex;
+  justify-content:flex-end;
+}
+nav li a {
+  display:block;
+  color:white;
+  text-align:center;
+  padding:16px 24px;
+  text-decoration:none;
+  font-weight:bold;
+}
+
+nav li a:hover {
+  background-color:crimson
+}
+
+/* Main Content */
+main {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 0 2rem;
+}
+
+section {
+  background-color: white;
+  padding: 2rem;
+  margin-bottom: 1rem;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+section h2 {
+  color: #333;
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+}
+
+.hero-section {
+  min-height: 400px;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+}
+
+.hero-section h1 {
+  font-size: 9rem;
+}
+
+.about-section {
+  display: flex; 
+  text-align: center;
+  justify-content: center;
+}
+
+.about-section h2 {
+  font-size: 5rem;
+}
+
+.about-section p {
+  font-size: 1.25rem;
+}
+
+.contact-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+}
+
+.contact-section h2 {
+  font-size: 5rem;
+}
+
+.contact-section p {
+  font-size: 1.25rem;
+}
+
+.contact-section ul{
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  justify-content: center;
+  display: flex;
+}
+/* Footer Styles */
+footer {
+  background-color: #000000;
+  color: crimson;
+  text-align: center;
+  padding: 1rem 0;
+  margin-top: 2rem;
+}
+
+/* Button Styles */
+button {
+  background-color: #333;
+  color: white;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #555;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  main {
+    padding: 0 1rem;
+  }
+  
+  section {
+    padding: 1rem;
+  }
+  
+  header h1 {
+    font-size: 1.5rem;
+  }
+}
