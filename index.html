@@ -9,8 +9,11 @@
 </head>
 <body>
     <nav class="navbar">
-        <ul>
-            <li><button id="dark-mode-btn" class="nav-btn"><i class='fa-moon-o'></i></button></li>
+        <button id="dark-mode-btn" class="nav-btn">
+            <i class='fa-solid fa-moon'></i>
+        </button>
+        <button id="hamburger-btn" class="hamburger"><i class="fa-solid fa-bars"></i></button>
+        <ul id="nav-links">
             <li><a href="#Home">Home</a></li>
             <li><a href="#About">About</a></li>
             <li><a href="#Contact">Contact</a></li>
@@ -21,29 +24,20 @@
     <div class="header">
     <section id="Home" class="hero-section">
         <div class="hero">
-        <h1 id="hero-text">Hello, This Is Pkay's First Project Practice</h1>
-        <h2>Welcome to my first project! <br> In this project I'm practicing my HTML and CSS skills</h2>
+        <h1 id="hero-text">Hello, Everyone ;-p</h1>
+        <h2>Welcome to my first project! <br> In this project I'm practicing my HTML and CSS skills by creating a portfolio website.<br> I'll be updating regularly as my skills improve. </h2>
         <p> HUGE TEXT, I KNOW <br> Click the button to change that ;-P </p>
-        <button id="suprise-btn">Shrink!</button><br>
-         
+    <div class="hero-btns">
+        <button id="suprise-btn"><a class="hero-icons"><i class="fa-solid fa-minus"></i></a></button>
+        <button id="increase-btn"><a class="hero-icons"><i id="hero-icons" class="fa-solid fa-plus"></i></a></button>
+        <button id="reset-btn"><a class="hero-icons"><i id="hero-icons" class="fa-solid fa-rotate-left"></i></a></button>
+    </div>
     </div>
     </section>
     <section id="About" class="about-section">
         <div class="about">
             <h2>About Me</h2>
-            <p>I am known as Pkay, an aspiring developer with creative ideas and a goal driven mindset.</p>
-        </div>
-    </section>
-    <section id="Contact" class="contact-section">
-        <div class="contact">
-            <h2>Contact Me</h2>
-            <p>You can reach me using any of the links below. Be wary though, my time isn't free ;-p</p>
-            <ul>
-                <li><a class="social-icons" href="mailto:pkaypyneuni@gmail.com"><i class="fa-solid fa-envelope"></i></a></li>
-                <li><a class="social-icons" href="https://www.linkedin.com/in/papa-kofi-safo-pyne-4b7184230/"><i class="fa-brands fa-linkedin"></i></a></li>
-                <li><a class="social-icons" href="https://www.instagram.com/stbspkay/"> <i class=" fa-brands fa-instagram"></i></a></li>
-                <li><a class="social-icons" href="https://www.tiktok.com/@stbspkay"><i class="fa-brands fa-tiktok"></i></a></li>
-            </ul> 
+            <p>I am known as Pkay, an aspiring developer and businessman with creative ideas and a goal driven mindset. Recently graduated from Lancaster University Ghana, currently interning at BashTech Solutions. Trying to beef up my programming skills by relearning HTML, CSS and JAvaScript. Well to be accurate, I haven't learned JavaScript before. My goal is to move on to ReactJs or React Native and start developing the frontend of mobile applications.</p>
         </div>
     </section>
     <section id="Services" class="services-section">
@@ -52,24 +46,28 @@
             <p>Here are some of the services I offer:</p>
             <div class="services-grid">
             <div class="card">
+                <img src="images/web-dev.jpg" class="card-img">
                 <div class="card-container">
                     <h3 class="card-title">Web Development</h3>
                     <p class="card-description">I create responsive and user-friendly websites using the latest technologies.</p>
                 </div>
             </div>
             <div class="card">
+                <img src="images/content.jpg" class="card-img">
                 <div class="card-container">
                     <h3 class="card-title">Content Creation</h3>
                     <p class="card-description">I create engaging content on various social media platforms for businesses and individuals.</p>
                 </div>
             </div>
             <div class="card">
+                <img src="images/design.jpg" class="card-img">
                 <div class="card-container">
                     <h3 class="card-title">Design Work</h3>
                     <p class="card-description">I create and design stunning clothing mockups for brands and aid in the produciton process to bring their vision to life</p>
                 </div>
             </div>
             <div class="card">
+                <img src="images/video.jpg" class="card-img">
                 <div class="card-container">
                     <h3 class="card-title">Video Editing</h3>
                     <p class="card-description">I edit videos for various platforms and clients to create engaging content.</p>
@@ -84,18 +82,21 @@
             <p>Here are some of my recent projects ;-p :</p>
             <div class="portfolio-grid">
             <div class="card">
+                <img src="images/creatorcollab.png" class="card-img">
                 <div class="card-container">
                     <h3 class="card-title">CreatorCollab</h3>
                     <p class="card-description">A collaborative platform for creators to showcase their work and connect with others.</p>
                 </div>
             </div>
             <div class="card">
+                <img src="images/sharecraft.png" class="card-img">
                 <div class="card-container">
                     <h3 class="card-title">ShareCraft</h3>
                     <p class="card-description">A platform for sharing and discovering creative projects and ideas.</p>
                 </div>
             </div>
             <div class="card">
+                <img src="images/stbs.png" class="card-img">
                 <div class="card-container">
                     <h3 class="card-title">STBS - Strive To Be Successful</h3>
                     <p class="card-description">A clothing brand that creates unique and stylish apparel fueled by the passion to succeed in life.</p>
@@ -104,8 +105,20 @@
         </div>
         </div>
     </section>
+    <section id="Contact" class="contact-section">
+        <div class="contact">
+            <h2>Contact Me</h2>
+            <p>You can reach me using any of the links below. Be wary though, my time isn't free ;-p</p>
+            <ul>
+                <li><a class="social-icons" href="mailto:pkaypyneuni@gmail.com"><i class="fa-solid fa-envelope"></i></a></li>
+                <li><a class="social-icons" href="https://www.linkedin.com/in/papa-kofi-safo-pyne-4b7184230/"><i class="fa-brands fa-linkedin"></i></a></li>
+                <li><a class="social-icons" href="https://www.instagram.com/stbspkay/"> <i class=" fa-brands fa-instagram"></i></a></li>
+                <li><a class="social-icons" href="https://www.tiktok.com/@stbspkay"><i class="fa-brands fa-tiktok"></i></a></li>
+            </ul> 
+        </div>
+    </section>
     <footer class="footer">
-        <p>&copy;<span id="current-year"> 2026 </span> STBS. All rights reserved.</p>
+        <p> &copy;<span id="current-year"> 2026 </span> STBS. All rights reserved.</p>
            <div class="footer-icons-container">
             <ul>
                 <li><a class="footer-icons" href="mailto:pkaypyneuni@gmail.com"><i class="fa-solid fa-envelope"></i></a></li>

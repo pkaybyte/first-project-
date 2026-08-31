@@ -2,7 +2,8 @@
   --pg-bg: #f4f4f4;
   --section-bg: #ffffff;
   --text-main: #000000;
-  --accent: crimson;
+  --hero-text: #bca754;
+  --accent: #bca754;
   --nav-footer-bg: #000000;
   --nav-footer-text: #ffffff;
   --border-color: #ddd;
@@ -12,6 +13,7 @@
   --pg-bg: #121212;
   --section-bg: #1e1e1e;
   --text-main: #ffffff;
+  --title-text: #bca754;
   --border-color: #333333;
 }
 
@@ -48,15 +50,17 @@ header h1 {
 /* Navigation Styles */
 nav {
   background-color: var(--nav-footer-bg);
+  display: flex;
+  justify-content: space-between; 
+  align-items: center; 
+  padding: 0 20px; 
 }
 
 nav ul {
   list-style: none;
   margin: 0;
   padding: 0;
-  display: flex;
-  justify-content: flex-end;
-  align-items: center; /* Ensures the button and text align vertically */
+  display: flex; 
 }
 
 nav li a {
@@ -66,7 +70,7 @@ nav li a {
   padding: 16px 24px;
   text-decoration: none;
   font-weight: bold;
-  transition: background-color 0.3s ease; /* Smooth hover transition */
+  transition: background-color 0.3s ease;
 }
 
 nav li a:hover {
@@ -85,6 +89,20 @@ nav li a:hover {
   background-color: var(--accent); /* Matches link hover behavior */
 }
 
+.nav-btn i {
+  font-size: 1.2rem; /* Adjust icon size as needed */
+  color: var(--nav-footer-text);
+}
+
+.hamburger {
+  display: none;
+  border: none;
+  background-color: none;
+  color: var(--nav-footer-text);
+  font-size: 2rem;
+  cursor: pointer;
+}
+
 /* Main Content */
 main {
   max-width: 1200px;
@@ -98,11 +116,11 @@ section {
   margin-bottom: 1rem;
   border-radius: 5px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  margin-top: 20px;
-  margin-bottom: 20px;
+  margin-top: 0;
+  margin-bottom: 0;
   width: 100%;
   height: 100vh;
-  overflow-y: auto;
+  overflow: auto;
 }
 
 section h2 {
@@ -112,25 +130,56 @@ section h2 {
 }
 
 .hero-section {
+  position: relative;
   min-height: 400px;
   display: flex;
+  align-items: center;
   text-align: center;
   justify-content: center;
   margin-top: 0;
-  margin-bottom: 20px;
+  margin-bottom: 0;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('images/hero-image.jpg');
+  background-size: cover;
+  background-position: center;
 }
 
 .hero-section h1 {
-  font-size: 9rem;
+  font-size: 150px;
+  color: var(--hero-text);
+  display: flex; 
+  text-align: left;
 }
 
 .hero-section h2 {
   font-size: 1.5rem;
   font-weight: none;
+  color: var(--hero-text);
+  display: flex; 
+  text-align: left;
 }
 
 .hero-section p {
   font-weight: bold;
+  color: var(--hero-text);
+  display: flex; 
+  text-align: left;
+}
+
+.hero-btns {
+  position: absolute;
+  bottom: 100px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 15px;
+}
+
+.hero-icons {
+  color: #bca754;
+}
+
+.hero-icons:hover {
+  color: white;
 }
 
 .about-section {
@@ -139,11 +188,12 @@ section h2 {
   align-items: center;
   justify-content: center;
   margin-top: 0;
-  margin-bottom: 20px;
+  margin-bottom: 0;
 }
 
 .about-section h2 {
   font-size: 5rem;
+  color: var(--title-text);
 }
 
 .about-section p {
@@ -163,6 +213,7 @@ section h2 {
 .contact-section h2 {
   font-size: 5rem;
   margin-top: 0;
+  color: var(--title-text);
 }
 
 .contact-section p {
@@ -182,6 +233,7 @@ section h2 {
   padding: 0;
   margin-left: 8.5px;
   margin-right: 8.5px;
+  margin-top: 10px;
   color: var(--text-main);
   font-size: 2rem;
   text-decoration: none;
@@ -203,6 +255,7 @@ section h2 {
 
 .services-section h2 {
   font-size: 5rem;
+  color: var(--title-text);
 }
 
 .services-section p {
@@ -224,17 +277,31 @@ section h2 {
   border-radius: 8px;
   overflow: hidden;          
   box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-  width: 250px;         
+  width: 300px;         
 }
 
 .card-container {
   flex: 1.5;  
   padding: 30px;
-  
-  /* Optional: Center the text vertically */
+  width: 100%;
+  max-width: 300px;
+  height: auto;
+  min-height: 300px;
   display: flex;
   flex-direction: column;
   justify-content: center;
+}
+
+.card-img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  display: block;
+}
+
+.card-title {
+  font-weight: bold;
+  font-size: 25px;
 }
 
 .portfolio-section {
@@ -249,6 +316,7 @@ section h2 {
 
 .portfolio-section h2 {
   font-size: 5rem;
+  color: var(--title-text);
 }
 
 .portfolio-section p {
@@ -269,7 +337,7 @@ footer {
   color: var(--text-main);
   text-align: center;
   padding: 1rem 0;    
-  margin-top: 2rem;
+  margin-top: 0;
 }
 
 .footer p {
@@ -326,6 +394,42 @@ button:hover {
   background-color: var(--accent);
 }
 
-button:active {
-  transform: scale(0.98); /* Slight click effect */
+@media (max-width: 768px) {
+  .hero-section h1 {
+  font-size: 75px;
+}
+
+.hero-section h2 {
+  font-size: 1.2 rem;
+}
+  
+.about-section h2,
+.contact-section h2,
+.services-section h2,
+.portfolio-section h2 {
+  font-size: 3rem;
+}
+
+.card {
+  width: 100%;
+  max-width: 350px;
+}
+
+nav {
+  flex-wrap: wrap;
+}
+
+nav ul{
+  display: none;
+  flex-direction: column;
+  width: 100%;
+}
+
+.hamburger{
+  display: block;
+}
+
+nav ul.show-menu{
+  display: flex;
+}
 }
