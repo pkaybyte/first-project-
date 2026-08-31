@@ -1,3 +1,20 @@
+:root {
+  --pg-bg: #f4f4f4;
+  --section-bg: #ffffff;
+  --text-main: #000000;
+  --accent: crimson;
+  --nav-footer-bg: #000000;
+  --nav-footer-text: #ffffff;
+  --border-color: #ddd;
+}
+
+.dark-mode{
+  --pg-bg: #121212;
+  --section-bg: #1e1e1e;
+  --text-main: #ffffff;
+  --border-color: #333333;
+}
+
 /* Global Styles */
 * {
   margin: 0;
@@ -8,14 +25,15 @@
 body {
   font-family: 'Arial', sans-serif;
   line-height: 1.6;
-  color: #333;
-  background-color: #f4f4f4;
+  color: var(--text-main);
+  background-color: var(--pg-bg);
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 /* Header Styles */
 header {
-  background-color: #000000;
-  color: white;
+  background-color:var(--pg-bg);
+  color: var(--text-main);
   padding: 1rem 0;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
@@ -26,29 +44,45 @@ header h1 {
   text-align: center;
 }
 
+
 /* Navigation Styles */
 nav {
-  background-color:#000000;
+  background-color: var(--nav-footer-bg);
 }
 
 nav ul {
-  list-style:none;
-  margin:0;
-  padding:0;
-  display:flex;
-  justify-content:flex-end;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center; /* Ensures the button and text align vertically */
 }
+
 nav li a {
-  display:block;
-  color:white;
-  text-align:center;
-  padding:16px 24px;
-  text-decoration:none;
-  font-weight:bold;
+  display: block;
+  color: var(--nav-footer-text);
+  text-align: center;
+  padding: 16px 24px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.3s ease; /* Smooth hover transition */
 }
 
 nav li a:hover {
-  background-color:crimson
+  background-color: var(--accent);
+}
+
+.nav-btn {
+  border: none;         /* Remove border to match links */
+  background: none;     /* Remove background to match links */
+  padding: 16px 24px;   /* Match the padding of the links exactly */
+  margin: 0;
+  border-radius: 0;
+}
+
+.nav-btn:hover {
+  background-color: var(--accent); /* Matches link hover behavior */
 }
 
 /* Main Content */
@@ -59,15 +93,20 @@ main {
 }
 
 section {
-  background-color: white;
+  background-color: var(--section-bg);
   padding: 2rem;
   margin-bottom: 1rem;
   border-radius: 5px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  margin-top: 20px;
+  margin-bottom: 20px;
+  width: 100%;
+  height: 100vh;
+  overflow-y: auto;
 }
 
 section h2 {
-  color: #333;
+  color: var(--text-main);
   margin-bottom: 1rem;
   padding-bottom: 0.5rem;
 }
@@ -77,16 +116,30 @@ section h2 {
   display: flex;
   text-align: center;
   justify-content: center;
+  margin-top: 0;
+  margin-bottom: 20px;
 }
 
 .hero-section h1 {
   font-size: 9rem;
 }
 
+.hero-section h2 {
+  font-size: 1.5rem;
+  font-weight: none;
+}
+
+.hero-section p {
+  font-weight: bold;
+}
+
 .about-section {
   display: flex; 
   text-align: center;
+  align-items: center;
   justify-content: center;
+  margin-top: 0;
+  margin-bottom: 20px;
 }
 
 .about-section h2 {
@@ -103,10 +156,13 @@ section h2 {
   align-items: center;
   text-align: center;
   justify-content: center;
+  margin-top: 0;
+  margin-bottom: 0;
 }
 
 .contact-section h2 {
   font-size: 5rem;
+  margin-top: 0;
 }
 
 .contact-section p {
@@ -126,7 +182,7 @@ section h2 {
   padding: 0;
   margin-left: 8.5px;
   margin-right: 8.5px;
-  color: black;
+  color: var(--text-main);
   font-size: 2rem;
   text-decoration: none;
   transition: transform 0.3s ease, color 0.3s ease;
@@ -134,7 +190,7 @@ section h2 {
 
 .social-icons:hover {
   transform: scale(2);
-  color: crimson;
+  color: var(--accent);
 }
 
 .services-section {
@@ -163,8 +219,8 @@ section h2 {
 }
 
 .card {
-  background-color: white;
-  border: 1px solid #ddd;
+  background-color: var(--section-bg);
+  border: 1px solid var(--border-color);
   border-radius: 8px;
   overflow: hidden;          
   box-shadow: 0 4px 8px rgba(0,0,0,0.1);
@@ -187,6 +243,8 @@ section h2 {
   align-items: center;
   text-align: center;
   justify-content: center;
+  margin-top: 0;
+  margin-bottom: 0;
 }
 
 .portfolio-section h2 {
@@ -207,10 +265,67 @@ section h2 {
 }
 /* Footer Styles */
 footer {
-  background-color: #000000;
-  color: crimson;
+  background-color: var(--nav-footer-bg);
+  color: var(--text-main);
   text-align: center;
   padding: 1rem 0;    
   margin-top: 2rem;
 }
+
+.footer p {
+  margin: 0;
+  font-size: 1rem;
+  color: var(--nav-footer-text);
+}
+
+.footer-icons-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.footer-icons-container ul{
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  justify-content: center;
+  display: flex;
+}
+
+.footer-icons {
+  display: flex;
+  padding: 0;
+  margin-left: 8.5px;
+  margin-right: 8.5px;
+  color: var(--nav-footer-text);
+  font-size: 2rem;
+  text-decoration: none;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.footer-icons:hover {
+  transform: scale(2);
+  color: var(--accent);
+}
  
+button {
+  padding: 10px 20px; /* Reduced padding slightly for better proportion */
+  color: var(--nav-footer-text);
+  font-size: 15px;
+  font-weight: bold;
+  cursor: pointer;
+  background-color: var(--nav-footer-bg);
+  border: 1px solid var(--border-color); /* Adds a subtle border to standard buttons */
+  border-radius: 5px;
+  transition: background-color 0.3s ease, transform 0.1s ease;
+}
+
+button:hover {
+  background-color: var(--accent);
+}
+
+button:active {
+  transform: scale(0.98); /* Slight click effect */
+}

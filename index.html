@@ -3,13 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My First Project</title>
+    <title>Portfolio Project</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
     <nav class="navbar">
         <ul>
+            <li><button id="dark-mode-btn" class="nav-btn"><i class='fa-moon-o'></i></button></li>
             <li><a href="#Home">Home</a></li>
             <li><a href="#About">About</a></li>
             <li><a href="#Contact">Contact</a></li>
@@ -20,9 +21,11 @@
     <div class="header">
     <section id="Home" class="hero-section">
         <div class="hero">
-        <h1>Hello, This Is Pkay's First Project Practice</h1>
+        <h1 id="hero-text">Hello, This Is Pkay's First Project Practice</h1>
         <h2>Welcome to my first project! <br> In this project I'm practicing my HTML and CSS skills</h2>
-        <p> HUGE TEXT, I KNOW ;-P </p>
+        <p> HUGE TEXT, I KNOW <br> Click the button to change that ;-P </p>
+        <button id="suprise-btn">Shrink!</button><br>
+         
     </div>
     </section>
     <section id="About" class="about-section">
@@ -79,13 +82,13 @@
         <div class="portfolio">
             <h2>Portfolio</h2>
             <p>Here are some of my recent projects ;-p :</p>
+            <div class="portfolio-grid">
             <div class="card">
                 <div class="card-container">
                     <h3 class="card-title">CreatorCollab</h3>
                     <p class="card-description">A collaborative platform for creators to showcase their work and connect with others.</p>
                 </div>
             </div>
-            <div class="portfolio-grid">
             <div class="card">
                 <div class="card-container">
                     <h3 class="card-title">ShareCraft</h3>
@@ -94,7 +97,7 @@
             </div>
             <div class="card">
                 <div class="card-container">
-                    <h3 class="card-title">STBS - Soon To Be Successful</h3>
+                    <h3 class="card-title">STBS - Strive To Be Successful</h3>
                     <p class="card-description">A clothing brand that creates unique and stylish apparel fueled by the passion to succeed in life.</p>
                 </div>
             </div>
@@ -102,7 +105,16 @@
         </div>
     </section>
     <footer class="footer">
-        <p>&copy; 2026 STBS. All rights reserved.</p>
+        <p>&copy;<span id="current-year"> 2026 </span> STBS. All rights reserved.</p>
+           <div class="footer-icons-container">
+            <ul>
+                <li><a class="footer-icons" href="mailto:pkaypyneuni@gmail.com"><i class="fa-solid fa-envelope"></i></a></li>
+                <li><a class="footer-icons" href="https://www.linkedin.com/in/papa-kofi-safo-pyne-4b7184230/"><i class="fa-brands fa-linkedin"></i></a></li>
+                <li><a class="footer-icons" href="https://www.instagram.com/stbspkay/"> <i class=" fa-brands fa-instagram"></i></a></li>
+                <li><a class="footer-icons" href="https://www.tiktok.com/@stbspkay"><i class="fa-brands fa-tiktok"></i></a></li>
+            </ul> 
+            </div>
     </footer>
+    <script src="script.js"></script>
 </body>
 </html>
