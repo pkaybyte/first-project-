@@ -15,6 +15,7 @@
   --section-bg: #1e1e1e;
   --text-main: #ffffff;
   --title-text: #bca754;
+  --hero-command:#ccbb6d;
   --border-color: #333333;
 }
 
@@ -186,6 +187,7 @@ section h2 {
   font-style: italic;
   margin: 10px;
   align-items: center;
+  color: var(--hero-command);
 }
 
 .hero-btns {
