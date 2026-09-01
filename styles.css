@@ -24,6 +24,9 @@
   padding: 0;
   box-sizing: border-box;
 }
+html {
+  scroll-behavior: smooth;
+}
 
 body {
   font-family: 'Arial', sans-serif;
@@ -55,6 +58,10 @@ nav {
   justify-content: space-between; 
   align-items: center; 
   padding: 0 20px; 
+  position: sticky;
+  z-index: 10;
+  top: 0;
+
 }
 
 nav ul {
@@ -130,7 +137,7 @@ section h2 {
 }
 
 .hero-section {
-  position: relative;
+  /* position: relative; */
   height: 100vh;
   display: flex;
   align-items: center;
@@ -158,20 +165,32 @@ section h2 {
   text-align: left;
 }
 
-.hero-section p {
+/* .hero-section p {
   font-weight: bold;
   color: var(--hero-text);
   display: flex; 
   text-align: left;
+} */
+
+.hero-ctrl{
+   position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.hero-command{
+  font-style: italic;
+  margin: 10px;
+  align-items: center;
 }
 
 .hero-btns {
-  position: absolute;
-  bottom: 20px;
-  left: 50%;
-  transform: translateX(-50%);
   display: flex;
-  gap: 15px;
+  gap: 20px;
 }
 
 .hero-icons {
