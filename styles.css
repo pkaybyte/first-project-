@@ -43,6 +43,10 @@ html {
 }
 
 body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  margin: 0;
   font-family: 'Michroma', sans-serif;
   line-height: 1.6;
   color: var(--text-main);
@@ -145,6 +149,7 @@ section {
   margin-bottom: 0;
   width: 100%;
   min-height: 600px;
+  flex: 1;
 }
 
 section h2 {
@@ -605,6 +610,21 @@ button:hover {
   display: flex;
   width: 100%;
   justify-content: center;
+  flex: 1;
+}
+
+.task-tracer-title {
+  font-size: 50px;
+  color: var(--title-text);
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.task-tracer-description {
+  font-size: 20px;
+  color: var(--text-main);
+  margin-bottom: 20px;
+  text-align: center;
 }
 
 .task-tracer-app {
@@ -619,31 +639,56 @@ button:hover {
   align-items: center;
   justify-content: space-between;
   margin-bottom: 20px;
+  max-width: 100%;
+  width: 900px;
 }
 
 .task-tracer-app input[type="text"] {
-  width: 100%;
+  max-width: 100%;
   border: 2px solid #bca754;
   border-radius: 5px ;
   background-color: transparent;
   height: 45px;
+  width: 450px;
   outline: none;
   color: var(--text-main);
   font-family: 'Michroma', sans-serif;
   margin-bottom: 10px;
 }
 
+.task-tracer-app input[id="desc-box"] {
+  max-width: 100%;
+  border: 2px solid #bca754;
+  border-radius: 5px ;
+  background-color: transparent;
+  height: 200px;
+  width: 900px;
+  outline: none;
+  color: var(--text-main);
+  font-family: 'Michroma', sans-serif;
+  margin-bottom: 10px;
+  text-align: left;
+}
+
 .task-tracer-app input[type="date"] {
-  width: 100%;
+  max-width: 100%;
   border: 2px solid #bca754;
   border-radius: 5px ;
   background-color: transparent;
   height: 45px;
+  width: 450px;
   outline: none;
   color: var(--text-main);
   cursor: pointer;
   font-family: 'Michroma', sans-serif;
   margin-bottom: 10px;
+}
+
+.task-list {
+  max-width: 100%;
+  width: 900px;
+  height: auto;
+
 }
 
 .task-list ul li {
@@ -653,6 +698,8 @@ button:hover {
   user-select: none;
   position: relative;
   font-size : 20px;
+  max-width: 100%;
+  width: 900px;
 }
 
 .task-list ul li::before {
@@ -675,6 +722,24 @@ button:hover {
 
 .task-list ul li.checked::before {
   background-image: url('media/checked.png');
+}
+
+.task-list ul li span {
+  position: absolute;
+  right: 0;
+  top: 5px;
+  width: 40px;
+  height: 40px;
+  font-size: 35px;
+  color: #bca754;
+  line-height: 40px;
+  text-align: center;
+  cursor: pointer;
+  border-radius: 50%;
+}
+
+.task-list ul li span:hover {
+  background: #edeef0;
 }
 
 /* Responsive Styles */
