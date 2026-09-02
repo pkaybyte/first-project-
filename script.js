@@ -2,7 +2,7 @@ const yearElement =document.getElementById('current-year'); // this finds the cu
 const currentYear = new Date().getFullYear(); //this gets the current year from system date
 yearElement.textContent = currentYear; // this changes the text to match the current year 
 
-let currentSize = 150;
+let currentSize = 140;
 const myButton = document.getElementById('suprise-btn');
 const resetButton = document.getElementById('reset-btn');
 const resizeButton = document.getElementById('increase-btn');
@@ -16,15 +16,15 @@ myButton.addEventListener('click', function(){
 });
 
 resetButton.addEventListener('click', function(){
-    if (currentSize !== 150) {
-        currentSize = 150;
+    if (currentSize !== 140) {
+        currentSize = 140;
         heroText.style.fontSize = currentSize + 'px';
     }
 });
 
 resizeButton.addEventListener('click', function(){
     if(currentSize <= 165){
-        currentSize = currentSize + 5;
+        currentSize = currentSize + 10;
         heroText.style.fontSize = currentSize + 'px';
     }
 });
