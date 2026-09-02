@@ -23,7 +23,7 @@
             <li><a href="/first-project-/index.html#Portfolio">Portfolio</a></li>
             <li><a href="/first-project-/index.html#Contact">Contact</a></li>
             <li><a href="/first-project-/index.html#Hire">Hire Me ¯\_(ツ)_/¯</a></li>
-            <li><a href="/first-project-/tracer.html">Task:Tracer</a></li>
+            <li><a href="/first-project-/tasktracer.html">Task:Tracer</a></li>
         </ul>
     </nav>
     <div class="container">
@@ -31,9 +31,9 @@
         <h1 class="task-tracer-title">Task Tracer</h1>
         <h3 class="task-tracer-description">A simple task tracker to help you stay on course and achieve your goals.</h3>
         <div class="'task-tracer-input">
-            <input type="text" id="input-box" placeholder="Add a Task">
-            <input type="date" id="date-box" placeholder="Add a Date"><br>
-            <input type="text" id="desc-box" placeholder="Add a Note"><br>
+            <input type="text" id="input-box" placeholder="Add a Task" minlength="1" maxlength="60">
+            <input type="date" id="date-box" value="02-09-2026" max="2099-12-31"><br>
+            <textarea id="desc-box" placeholder="Add a Note..." minlength="2" maxlength="1000"></textarea><br>
             <button onclick="addTask()"id="add-btn">Add task</button>
         </div><br>
         <h2 class="task-tracer-title"> Current Tasks </h2>
