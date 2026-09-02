@@ -260,6 +260,7 @@ section h2 {
   /* display: flex; */
   color: var(--form-text);
   align-items: left;
+  cursor: pointer;
 }
 
 .hire input[type=text] {
@@ -296,6 +297,7 @@ section h2 {
   background-color: transparent;
   height: 45px;
   outline: none;
+  cursor: pointer;
   color: var(--text-main);
   font-family: 'Michroma', sans-serif;
 }
@@ -326,6 +328,7 @@ section h2 {
   vertical-align: middle;
   margin-right: 8px;
   transition: all 0.2s ease-in-out;
+  cursor: pointer;
 }
 
 .radio-btn::before {
@@ -354,6 +357,7 @@ section h2 {
   height: 45px;
   margin-top: 20px;
   font-size: 20px;
+  cursor: pointer;
   font-family: 'Michroma', sans-serif;
 }
 
@@ -581,13 +585,14 @@ footer {
  
 button {
   padding: 10px 20px;  
-  color: var(--nav-footer-text);
-  font-size: 15px;
-  font-weight: bold;
-  cursor: pointer;
-  background-color: var(--nav-footer-bg);
-  border: 1px solid var(--border-color);  
+  background-color: black;
+  border: none;
   border-radius: 5px;
+  cursor: pointer;
+  color: white;
+  margin-top: 0px;
+  font-size: 20px;
+  font-family: 'Michroma', sans-serif;
   transition: background-color 0.3s ease, transform 0.1s ease;
 }
 
@@ -595,13 +600,91 @@ button:hover {
   background-color: var(--accent);
 }
 
+/* Task Tracer Styles */
+.container {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
+
+.task-tracer-app {
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  /* background-color: var(--accent); */
+}
+
+.task-tracer-input {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.task-tracer-app input[type="text"] {
+  width: 100%;
+  border: 2px solid #bca754;
+  border-radius: 5px ;
+  background-color: transparent;
+  height: 45px;
+  outline: none;
+  color: var(--text-main);
+  font-family: 'Michroma', sans-serif;
+  margin-bottom: 10px;
+}
+
+.task-tracer-app input[type="date"] {
+  width: 100%;
+  border: 2px solid #bca754;
+  border-radius: 5px ;
+  background-color: transparent;
+  height: 45px;
+  outline: none;
+  color: var(--text-main);
+  cursor: pointer;
+  font-family: 'Michroma', sans-serif;
+  margin-bottom: 10px;
+}
+
+.task-list ul li {
+  cursor: pointer;
+  list-style: none;
+  padding: 12px 8px 12px 50px;
+  user-select: none;
+  position: relative;
+  font-size : 20px;
+}
+
+.task-list ul li::before {
+  content: '';
+  position: absolute;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background-image: url('media/unchecked.png');
+  background-size: cover;
+  background-position: center;
+  top: 12px;
+  left: 2px;
+}
+
+.task-list ul li.checked {
+  color: #5555;
+  text-decoration: line-through;
+}
+
+.task-list ul li.checked::before {
+  background-image: url('media/checked.png');
+}
+
+/* Responsive Styles */
 @media (max-width: 768px) {
   .hero-section h1 {
-  font-size: 75px;
+  font-size: 60px;
 }
 
 .hero-section h2 {
-  font-size: 1.2 rem;
+  font-size: 50px;
 }
   
 .about-section h2,

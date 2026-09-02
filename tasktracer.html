@@ -23,16 +23,30 @@
             <li><a href="/first-project-/index.html#Portfolio">Portfolio</a></li>
             <li><a href="/first-project-/index.html#Contact">Contact</a></li>
             <li><a href="/first-project-/index.html#Hire">Hire Me ¯\_(ツ)_/¯</a></li>
-            <li><a href="/first-project-/tasktracer.html">Task:Tracer</a></li>
+            <li><a href="/first-project-/tracer.html">Task:Tracer</a></li>
         </ul>
     </nav>
     <div class="container">
         <div class="task-tracer-app">
         <h1 class="task-tracer-title">Task Tracer</h1>
         <h3 class="task-tracer-description">A simple task tracker to help you stay on course and achieve your goals.</h3>
+        <div class="'task-tracer-input">
+            <input type="text" id="input-box" placeholder="Add a Task">
+            <input type="date" id="date-box" placeholder="Add a Date">
+            <input type="text" id="desc-box" placeholder="Add a Note"><br>
+            <button id="add-btn">Add task</button>
+        </div><br>
+        <h2 class="task-tracer-title"> Current Tasks </h2>
+        <div class="task-list">
+            <ul id="task-list">
+                <!-- <li class="checked">Task 1</li>
+                <li class="checked">Task 2</li>
+                <li class="checked">Task 3</li> -->
+            </ul>
+        </div>
         </div>
     </div>
-<footer class="footer">
+    <footer class="footer">
         <p> &copy;<span id="current-year"> 2026 </span> STBS. All rights reserved.</p>
            <div class="footer-icons-container">
             <ul>
@@ -43,6 +57,6 @@
             </ul> 
             </div>
     </footer>
-    <script src="script.js"></script>
+    <script src="/first-project-/script.js"></script>
 </body>
 </html>
