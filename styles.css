@@ -466,6 +466,7 @@ section h2 {
   width: 350px;     
   display: flex;
   flex-direction: column;    
+  text-decoration: none;
 }
 
 .card-container {
@@ -648,26 +649,37 @@ button:hover {
   border: 2px solid #bca754;
   border-radius: 5px ;
   background-color: transparent;
-  height: 45px;
-  width: 450px;
+  height: 55px;
+  width: 650px;
   outline: none;
   color: var(--text-main);
   font-family: 'Michroma', sans-serif;
   margin-bottom: 10px;
+  padding: 5px;
+  font-size : 20px;
 }
 
-.task-tracer-app input[id="desc-box"] {
+.task-tracer-app textarea#desc-box {
   max-width: 100%;
   border: 2px solid #bca754;
   border-radius: 5px ;
   background-color: transparent;
-  height: 200px;
-  width: 900px;
+  height: 380px;
+  width: 1300px;
   outline: none;
   color: var(--text-main);
   font-family: 'Michroma', sans-serif;
   margin-bottom: 10px;
+  padding: 5px; 
+  overflow-wrap: break-word;
+  resize: vertical;
+  font-size : 20px;
+  /* display: flex;
+  justify-content: space-between;
+  align-items: center;
   text-align: left;
+  overflow-wrap: break-word;
+  word-break: break-word; */
 }
 
 .task-tracer-app input[type="date"] {
@@ -675,18 +687,20 @@ button:hover {
   border: 2px solid #bca754;
   border-radius: 5px ;
   background-color: transparent;
-  height: 45px;
-  width: 450px;
+  height: 55px;
+  width: 650px;
   outline: none;
-  color: var(--text-main);
+  color: #757575;
   cursor: pointer;
   font-family: 'Michroma', sans-serif;
   margin-bottom: 10px;
+  padding: 5px;
+  font-size : 20px;
 }
 
 .task-list {
   max-width: 100%;
-  width: 900px;
+  width: 1300px;
   height: auto;
 
 }
@@ -694,12 +708,21 @@ button:hover {
 .task-list ul li {
   cursor: pointer;
   list-style: none;
-  padding: 12px 8px 12px 50px;
+  padding: 12px 50px 12px 50px;
   user-select: none;
   position: relative;
   font-size : 20px;
   max-width: 100%;
-  width: 900px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+.task-list li .task-item {
+  flex: 1;
+  max-width: 70%;
 }
 
 .task-list ul li::before {
@@ -716,7 +739,7 @@ button:hover {
 }
 
 .task-list ul li.checked {
-  color: #5555;
+  color: var(--text-main);
   text-decoration: line-through;
 }
 
@@ -724,7 +747,7 @@ button:hover {
   background-image: url('media/checked.png');
 }
 
-.task-list ul li span {
+.task-list ul li span.delete-btn {
   position: absolute;
   right: 0;
   top: 5px;
@@ -738,8 +761,33 @@ button:hover {
   border-radius: 50%;
 }
 
-.task-list ul li span:hover {
+.task-list ul li span.delete-btn:hover {
   background: #edeef0;
+}
+
+.task-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; 
+  text-align: left;
+  gap: 5px; 
+}
+
+.task-date {
+  font-size: 14px;
+  color: #888;
+  font-style: italic;
+}
+
+.task-title {
+  font-size: 22px;
+  font-weight: bold;
+  color: var(--title-text);
+}
+
+.task-desc {
+  font-size: 16px;
+  color: var(--text-main);
 }
 
 /* Responsive Styles */
@@ -748,15 +796,28 @@ button:hover {
   font-size: 60px;
 }
 
-.hero-section h2 {
-  font-size: 50px;
+.container {
+  width: 100%;
 }
-  
+
+.task-tracer-app {
+  width: 100%;
+  max-width: 350px;
+}
+
+.task-tracer-input {
+  max-width: 100%;
+  width: 350px;
+}
+
+.hero-section h2,
 .about-section h2,
 .contact-section h2,
 .services-section h2,
-.portfolio-section h2 {
-  font-size: 3rem;
+.portfolio-section h2,
+.hire-section h2,
+.container h1 {
+  font-size: 50px;
 }
 
 .card {
@@ -765,6 +826,10 @@ button:hover {
 }
 
 nav {
+  flex-wrap: wrap;
+}
+
+.footer {
   flex-wrap: wrap;
 }
 

@@ -32,10 +32,14 @@ if (myButton && resetButton && resizeButton && heroText) {
 }
 
 const themeButton = document.getElementById('dark-mode-btn');
-const savedTheme = localStorage.getItem('dark-mode');
+const savedTheme = localStorage.getItem('siteTheme');
 if (savedTheme === 'dark' || savedTheme === null) {
     document.body.classList.add('dark-mode');
     if (themeButton) themeButton.innerHTML = '<i class="fa-solid fa-sun"></i>';
+}else {
+    // Explicitly handle the light mode state on reload
+    document.body.classList.remove('dark-mode');
+    if (themeButton) themeButton.innerHTML = '<i class="fa-solid fa-moon"></i>';
 }
 
 if (themeButton) {
@@ -72,10 +76,22 @@ function addTask() {
     }
     else {
         let li = document.createElement("li");
-        li.innerHTML = inputBox.value + " - " + dateInput.value + "-" + descBox.value;
+        let rawDate = document.getElementById("date-box").value;
+        let formattedDate = rawDate.split("-").reverse().join("/");
+        
+        li.innerHTML = `
+        <div class="task-content">
+        <span class="task-date">${formattedDate}</span>
+        <span class="task-title">${inputBox.value}</span>
+        <span class="task-desc">${descBox.value}</span>
+        </div>
+        `;
         taskList.appendChild(li);
+        // li.innerHTML = inputBox.value + " - " + dateInput.value + "-" + descBox.value;
+        // taskList.appendChild(li);
         let span = document.createElement("span");
         span.innerHTML ="\u00D7";
+        span.className = "delete-btn";
         li.appendChild(span);
     }
 
@@ -86,15 +102,20 @@ function addTask() {
 }
 
 taskList.addEventListener("click", function(e){
-    if(e.target.tagName === "LI") {
-        e.target.classList.toggle("checked");
-        saveData();
+    // FIX 2: Only delete if they explicitly clicked the 'X' button
+    if(e.target.className === "delete-btn") {
+         e.target.parentElement.remove();
+         saveData();
     }
-    else if(e.target.tagName === "SPAN"){
-        e.target.parentElement.remove();
-        saveData();
+    // Otherwise, toggle the checkmark
+    else {
+        // e.target.closest('li') makes sure clicking the title/desc still checks the box
+        let li = e.target.closest('li'); 
+        if(li) {
+            li.classList.toggle("checked");
+            saveData();
+        }
     }
-
 }, false);
 
 function saveData() {
