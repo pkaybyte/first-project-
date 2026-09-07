@@ -37,7 +37,6 @@ if (savedTheme === 'dark' || savedTheme === null) {
     document.body.classList.add('dark-mode');
     if (themeButton) themeButton.innerHTML = '<i class="fa-solid fa-sun"></i>';
 }else {
-    // Explicitly handle the light mode state on reload
     document.body.classList.remove('dark-mode');
     if (themeButton) themeButton.innerHTML = '<i class="fa-solid fa-moon"></i>';
 }
@@ -69,6 +68,8 @@ const inputBox = document.getElementById('input-box');
 const dateInput = document.getElementById('date-box');
 const descBox = document.getElementById('desc-box');
 const taskList = document.getElementById('task-list');
+const successSound = new Audio('./media/pop.mp3');
+const deleteSound = new Audio('./media/fahhh.mp3')
 
 function addTask() {
     if(inputBox.value === '' || dateInput.value === '' || descBox.value === '') {
@@ -86,6 +87,9 @@ function addTask() {
         <span class="task-desc">${descBox.value}</span>
         </div>
         `;
+
+        li.classList.add('pop-in');
+
         taskList.appendChild(li);
         // li.innerHTML = inputBox.value + " - " + dateInput.value + "-" + descBox.value;
         // taskList.appendChild(li);
@@ -93,6 +97,9 @@ function addTask() {
         span.innerHTML ="\u00D7";
         span.className = "delete-btn";
         li.appendChild(span);
+        successSound.currentTime = 0;
+        successSound.play();
+        showNotification("Task added successfully!");
     }
 
     inputBox.value = '';
@@ -101,18 +108,31 @@ function addTask() {
     saveData();
 }
 
+function showNotification(message) {
+    const toast = document.createElement('div');
+    toast.classList.add('toast');
+    toast.textContent = message ;
+    
+    document.body.appendChild(toast);
+
+    setTimeout(function(){
+        toast.remove();
+    }, 3000);
+}
+
 taskList.addEventListener("click", function(e){
-    // FIX 2: Only delete if they explicitly clicked the 'X' button
     if(e.target.className === "delete-btn") {
          e.target.parentElement.remove();
+         deleteSound.play();
+         showNotification("Task removed!")
          saveData();
     }
-    // Otherwise, toggle the checkmark
+
     else {
-        // e.target.closest('li') makes sure clicking the title/desc still checks the box
         let li = e.target.closest('li'); 
         if(li) {
             li.classList.toggle("checked");
+            showNotification("Task completed successfully!")
             saveData();
         }
     }
