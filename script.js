@@ -63,13 +63,14 @@ if (hamburger && navlinks) {
     });
 }
 
-
+//task tracer logic
 const inputBox = document.getElementById('input-box');
 const dateInput = document.getElementById('date-box');
 const descBox = document.getElementById('desc-box');
 const taskList = document.getElementById('task-list');
-const successSound = new Audio('./media/pop.mp3');
-const deleteSound = new Audio('./media/fahhh.mp3')
+const successSound = new Audio('./media/ding.mp3');
+const deleteSound = new Audio('./media/fahhh.mp3');
+const completeSound = new Audio('./media/wow.mp3');
 
 function addTask() {
     if(inputBox.value === '' || dateInput.value === '' || descBox.value === '') {
@@ -87,8 +88,7 @@ function addTask() {
         <span class="task-desc">${descBox.value}</span>
         </div>
         `;
-
-        li.classList.add('pop-in');
+        // li.classList.add('pop-in');
 
         taskList.appendChild(li);
         // li.innerHTML = inputBox.value + " - " + dateInput.value + "-" + descBox.value;
@@ -124,7 +124,7 @@ taskList.addEventListener("click", function(e){
     if(e.target.className === "delete-btn") {
          e.target.parentElement.remove();
          deleteSound.play();
-         showNotification("Task removed!")
+         showNotification("Task removed!");
          saveData();
     }
 
@@ -132,7 +132,8 @@ taskList.addEventListener("click", function(e){
         let li = e.target.closest('li'); 
         if(li) {
             li.classList.toggle("checked");
-            showNotification("Task completed successfully!")
+            showNotification("Task completed successfully!");
+            completeSound.play();
             saveData();
         }
     }
