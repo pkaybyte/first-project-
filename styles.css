@@ -710,7 +710,11 @@ button:hover {
   max-width: 100%;
   width: 1300px;
   height: auto;
-
+  position:  relative;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  display: flex;
+  flex-direction: column;
 }
 
 .task-list ul li {
@@ -726,6 +730,8 @@ button:hover {
   align-items: center;
   overflow-wrap: break-word;
   word-break: break-word;
+  margin-top: 30px;
+  margin-bottom: 30px;
 }
 
 .task-list li .task-item {
@@ -802,7 +808,7 @@ button:hover {
   position: fixed;
   bottom: 20px;
   right: 20px;
-  background-color: var(--nav-footer-bg);
+  background-color: var(--nav-bg);
   color: white;
   padding: 15px 20px;
   border-radius: 10px;
