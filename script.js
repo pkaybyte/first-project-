@@ -63,6 +63,63 @@ if (hamburger && navlinks) {
     });
 }
 
+//pomodoro timer logic
+const startTime = document.getElementById("start");
+const stopTime = document.getElementById ('stop');
+const resetTime = document.getElementById('reset');
+const timer = document.getElementById('timer');
+const timestartSound = new Audio('./media/ding.mp3');
+const timesupSound = new Audio('./media/ohyeah.mp3');
+
+let interval;
+let timeLeft = 1500;
+
+function updateTimer(){
+    let minutes = Math.floor (timeLeft/60);
+    let seconds = timeLeft%60;
+    let formattedTime = `${minutes.toString().padStart(2,"0")}:${seconds.toString().padStart(2,"0")}`;
+    timer.innerHTML = formattedTime;
+
+}
+
+function startTimer(){
+    clearInterval(interval);
+    showNotification("Timer Started!");
+    timestartSound.play();
+
+    interval = setInterval(()=> {timeLeft--;
+    updateTimer();
+    saveData();
+    if (timeLeft === 0){
+        clearInterval(interval);
+        showNotification("Time's Up");
+        timesupSound.play();
+        timeLeft = 1500;
+        updateTimer();
+        saveData();
+    }
+},1000);
+}
+
+function stopTimer(){
+    clearInterval(interval);
+    showNotification("Timer Stopped");
+    saveData();
+}
+
+function resetTimer(){
+    clearInterval(interval);
+    timeLeft = 1500;
+    showNotification("Timer Stopped!")
+    updateTimer();
+    saveData();
+}
+
+startTime.addEventListener("click", startTimer);
+stopTime.addEventListener("click", stopTimer);
+resetTime.addEventListener("click", resetTimer);
+
+
 //task tracer logic
 const inputBox = document.getElementById('input-box');
 const dateInput = document.getElementById('date-box');
@@ -142,10 +199,32 @@ taskList.addEventListener("click", function(e){
 }, false);
 
 function saveData() {
-    localStorage.setItem("data", taskList.innerHTML);
+    localStorage.setItem("taskData", taskList.innerHTML);
+    localStorage.setItem("timerState",timeLeft);
 };
 
-function showTask() {
-    taskList.innerHTML = localStorage.getItem("data"); 
+function loadData() {
+   console.log("1. loadData function started!");
+
+   // Load the task list
+   if (localStorage.getItem("taskData")){
+       taskList.innerHTML = localStorage.getItem("taskData");
+       console.log("2. Tasks loaded successfully.");
+   } 
+
+   // Load the timer
+   const savedTime = localStorage.getItem("timerState");
+   console.log("3. Found saved time in memory:", savedTime);
+
+   if (savedTime !== null && savedTime !== "NaN") {
+       // Convert string to integer
+       timeLeft = parseInt(savedTime); 
+       console.log("4. timeLeft math variable updated to:", timeLeft);
+       
+       updateTimer();
+   } else {
+       console.log("5. No valid timer found. Starting fresh.");
+   }
 }
-showTask();
+
+loadData();
