@@ -123,18 +123,20 @@ function showNotification(message) {
 taskList.addEventListener("click", function(e){
     if(e.target.className === "delete-btn") {
          e.target.parentElement.remove();
+         saveData();
          deleteSound.play();
          showNotification("Task removed!");
-         saveData();
+         
     }
 
     else {
         let li = e.target.closest('li'); 
         if(li) {
             li.classList.toggle("checked");
+            saveData();
             showNotification("Task completed successfully!");
             completeSound.play();
-            saveData();
+            
         }
     }
 }, false);
