@@ -625,9 +625,44 @@ button:hover {
   flex: 1;
 }
 
+.section-center {
+  width: 1000px;
+  margin: 0 auto;
+  max-width: 100%;
+  padding: 5px 0;
+}
+
+.tabs {
+  background-image: url(/first-project-/media/pomodoro.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: none;
+  /* background: repeating-linear-gradient(black, #d1c789, black) ; */
+  border-radius: 0.5rem;
+  grid-template-rows: auto 1fr;
+}
+
+.tabs-content {
+  padding: 2rem 1.5rem;
+}
+
+.content.live {
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  display: block;
+}
+
+.content {
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  display: none;
+}
+
 .timer-title {
   font-size: 50px;
-  color: var(--title-text);
+  color: black;
   margin-bottom: 5px;
   text-align: center;
   padding: 5px;
@@ -638,16 +673,30 @@ button:hover {
   font-size: 20px;
   text-align: center;
   margin-bottom: 5px;
-  color: var(--text-main);
+  color: whitesmoke;
   padding: 5px;
 }
 
 .timer {
   font-size: 40px;
-  color: var(--text-main);
+  color: whitesmoke;
+  font-weight: bold;
   text-align: center;
   padding: 5px;
 }
+
+.btn-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.btn.live{
+    background: #fea94f;
+}
+
+ .btn:hover {
+  background-color: #fea94f;
+ }
 
 #start:hover{
   background-color: green;;
@@ -660,6 +709,31 @@ button:hover {
 #reset:hover{
   background-color: grey;
 }
+
+#sb-start:hover{
+  background-color: green;;
+}
+
+#sb-stop:hover {
+  background-color: red;
+}
+
+#sb-reset:hover{
+  background-color: grey;
+}
+
+#lb-start:hover{
+  background-color: green;;
+}
+
+#lb-stop:hover {
+  background-color: red;
+}
+
+#lb-reset:hover{
+  background-color: grey;
+}
+
 
 .task-tracer-title {
   font-size: 50px;
@@ -675,7 +749,7 @@ button:hover {
   text-align: center;
 }
 
-.pomodoro-timer, .task-tracer-app {
+.task-tracer-app {
   text-align: center;
   margin-top: 20px;
   margin-bottom: 20px;
