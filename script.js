@@ -63,11 +63,33 @@ if (hamburger && navlinks) {
     });
 }
 
+//tabs section logic 
+const tabs = document.querySelector(".tabs");
+const btns = document.querySelectorAll(".btn");
+const content = document.querySelectorAll(".content");
+
+tabs.addEventListener("click", function(e){
+    const id = e.target.dataset.id;
+    if (id){
+        //remove selected from buttons 
+        btns.forEach(function(btn){
+            btn.classList.remove("live");
+        });
+        e.target.classList.add("live");
+        content.forEach(function(content){
+            content.classList.remove("live");
+        });
+
+        const element = document.getElementById(id);
+        element.classList.add("live");
+    }
+});
+
 //pomodoro timer logic
 const startTime = document.getElementById("start");
 const stopTime = document.getElementById ('stop');
 const resetTime = document.getElementById('reset');
-const timer = document.getElementById('timer');
+const timer = document.getElementById('pm-timer');
 const timestartSound = new Audio('./media/ding.mp3');
 const timesupSound = new Audio('./media/ohyeah.mp3');
 
@@ -103,14 +125,14 @@ function startTimer(){
 
 function stopTimer(){
     clearInterval(interval);
-    showNotification("Timer Stopped");
+    showNotification("Timer Stopped!");
     saveData();
 }
 
 function resetTimer(){
     clearInterval(interval);
     timeLeft = 1500;
-    showNotification("Timer Stopped!")
+    showNotification("Timer Reset!")
     updateTimer();
     saveData();
 }
@@ -119,6 +141,113 @@ startTime.addEventListener("click", startTimer);
 stopTime.addEventListener("click", stopTimer);
 resetTime.addEventListener("click", resetTimer);
 
+//short break timer logic
+const startShortBreak = document.getElementById('sb-start');
+const stopShortBreak = document.getElementById('sb-stop');
+const resetShortBreak = document.getElementById('sb-reset');
+const sbTimer = document.getElementById('sb-timer');
+
+let sbinterval;
+let sbtimeLeft = 300;
+
+function updatesbTimer(){
+    let sbminutes = Math.floor (sbtimeLeft/60);
+    let sbseconds = sbtimeLeft%60;
+    let sbformattedTime = `${sbminutes.toString().padStart(2,'0')}:${sbseconds.toString().padStart(2,'0')}`;
+    sbTimer.innerHTML = sbformattedTime;
+}
+
+function startsbTimer(){
+    clearInterval(sbinterval);
+    showNotification('Timer Started!');
+    timestartSound.play();
+
+    sbinterval = setInterval(()=> {sbtimeLeft--;
+        updatesbTimer();
+        saveData();
+
+        if (sbtimeLeft === 0){
+            clearInterval(sbinterval);
+            showNotification("Time's Up");
+            timesupSound.play();
+            sbtimeLeft = 300;
+            updatesbTimer();
+            saveData();
+        }
+    },1000);
+}
+
+function stopsbTimer(){
+    clearInterval(sbinterval);
+    showNotification('Timer Stopped');
+    saveData();
+}
+
+function resetsbTimer(){
+    clearInterval(sbinterval);
+    sbtimeLeft = 300;
+    showNotification('Timer Reset')
+    updatesbTimer();
+    saveData();
+}
+
+startShortBreak.addEventListener("click", startsbTimer);
+stopShortBreak.addEventListener("click",stopsbTimer);
+resetShortBreak.addEventListener("click", resetsbTimer);
+
+//long break timer logic
+const startLongBreak = document.getElementById('lb-start');
+const stopLongBreak = document.getElementById('lb-stop');
+const resetLongBreak = document.getElementById('lb-reset');
+const lbTimer = document.getElementById('lb-timer');
+
+let lbinterval;
+let lbtimeLeft = 900;
+
+function updatelbTimer(){
+    let lbminutes = Math.floor (lbtimeLeft/60);
+    let lbseconds = lbtimeLeft%60;
+    let lbformattedTime = `${lbminutes.toString().padStart(2,'0')}:${lbseconds.toString().padStart(2,'0')}`;
+    lbTimer.innerHTML = lbformattedTime;
+}
+
+function startlbTimer(){
+    clearInterval(lbinterval);
+    showNotification('Timer Started!');
+    timestartSound.play();
+
+    lbinterval = setInterval(()=> {lbtimeLeft--;
+        updatelbTimer();
+        saveData();
+
+        if (lbtimeLeft === 0){
+            clearInterval(lbinterval);
+            showNotification("Time's Up");
+            timesupSound.play();
+            lbtimeLeft = 300;
+            updatelbTimer();
+            saveData();
+        }
+    },1000);
+}
+
+function stoplbTimer(){
+    clearInterval(lbinterval);
+    showNotification('Timer Stopped');
+    saveData();
+}
+
+function resetlbTimer(){
+    clearInterval(lbinterval);
+    lbtimeLeft = 900;
+    showNotification('Timer Reset')
+    updatelbTimer();
+    saveData();
+}
+
+startLongBreak.addEventListener("click", startlbTimer);
+stopLongBreak.addEventListener("click",stoplbTimer);
+resetLongBreak.addEventListener("click", resetlbTimer);
 
 //task tracer logic
 const inputBox = document.getElementById('input-box');
