@@ -679,7 +679,7 @@ button:hover {
 
 .timer {
   font-size: 40px;
-  color: whitesmoke;
+  color: black;
   font-weight: bold;
   text-align: center;
   padding: 5px;
@@ -976,6 +976,11 @@ button:hover {
 .card {
   width: 100%;
   max-width: 350px;
+}
+
+.section-center, .tabs , .btn-container{
+  flex-wrap: wrap;
+  max-width: 400px;
 }
 
 nav {
