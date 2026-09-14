@@ -179,7 +179,7 @@ function resetAll(){
 function startTimer(){
     resetAll();
     activeMode = 'pomodoro'
-    if (popupLabel) popupLabel.textContent('Pomodoro');
+    if(popupLabel) popupLabel.textContent('Pomodoro');
     showNotification("Pomodoro Started!");
     timestartSound.play();
 
