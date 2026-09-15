@@ -1006,6 +1006,14 @@ button:hover {
   width: 100%;
 }
 
+.floating-timer-popup {
+  width: 200px;
+}
+
+.toast{
+  width: 150px;
+}
+
 .task-tracer-app {
   width: 100%;
   max-width: 350px;
