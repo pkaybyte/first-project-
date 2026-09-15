@@ -89,18 +89,21 @@ tabs.addEventListener("click", function(e){
 let popupDismissed = false;
 const popup = document.getElementById('scrollPopUp');
 const popupDisplay = document.getElementById('popup-timer-display');
-const popupLabel = document.getElementById('popup-label');
+const popupLabel = document.getElementById('popup-mode-label');
 
 window.addEventListener('scroll', () => {
     if (window.scrollY > 300 && !popupDismissed) {
-        const sourceElement = document.querySelector('timer');
+        const sourceElement = document.querySelector('timer'); 
 
     if (sourceElement && targetContainer) {
         targetContainer.innerHTML = sourceElement.innerHTML;
     }
 
     popup.classList.add('show');
+    } else {
+        popup.classList.remove('show');
     }
+      
 });
 
 function closePopup() {
@@ -167,7 +170,6 @@ function resetAll(){
     sbtimeLeft = sb_time;
     lbtimeLeft = lb_time;
 
-    showNotification("Timer Reset!")
     updateTimer();
     updatelbTimer();
     updatesbTimer();
@@ -179,11 +181,11 @@ function resetAll(){
 function startTimer(){
     resetAll();
     activeMode = 'pomodoro'
-    if(popupLabel) popupLabel.textContent('Pomodoro');
+    if(popupLabel) popupLabel.textContent ='Pomodoro';
     showNotification("Pomodoro Started!");
     timestartSound.play();
 
-    interval = setInterval(()=> {
+    timeInterval = setInterval(()=> {
     timeLeft--;
     updateTimer();
     saveData();
@@ -200,7 +202,7 @@ function startTimer(){
 }
 
 function stopTimer(){
-    clearInterval(interval);
+    clearInterval(timeInterval);
     showNotification("Pomodoro Complete!");
     saveData();
 }
@@ -222,7 +224,7 @@ function startsbTimer(){
     showNotification('Short Break Started!');
     timestartSound.play();
 
-    sbinterval = setInterval(()=> {
+    timeInterval = setInterval(()=> {
         sbtimeLeft--;
         updatesbTimer();
         saveData();
@@ -261,7 +263,7 @@ function startlbTimer(){
     showNotification('Long Break Started!');
     timestartSound.play();
 
-    lbinterval = setInterval(()=> {
+    timeInterval = setInterval(()=> {
         lbtimeLeft--;
         updatelbTimer();
         saveData();
@@ -270,7 +272,7 @@ function startlbTimer(){
             clearInterval(timeInterval);
             showNotification("Break's Over");
             breakoverSound.play();
-            lbtimeLeft = sb_time;
+            lbtimeLeft = lb_time;
             updatelbTimer();
             saveData();
         }
@@ -285,16 +287,16 @@ function stoplbTimer(){
 
 function resetlbTimer(){
     clearInterval(timeInterval);
-    lbtimeLeft = sb_time;
+    lbtimeLeft = lb_time;
     showNotification('Timer Reset')
     updatelbTimer();
     saveData();
 }
 
 // Button Bindings
-document.getElementById('start').addEventListener('click', startTimer);
-document.getElementById('stop').addEventListener('click', stopTimer);
-document.getElementById('reset').addEventListener('click', resetTimer);
+document.getElementById('pm-start').addEventListener('click', startTimer);
+document.getElementById('pm-stop').addEventListener('click', stopTimer);
+document.getElementById('pm-reset').addEventListener('click', resetTimer);
 
 document.getElementById('sb-start').addEventListener('click', startsbTimer);
 document.getElementById('sb-stop').addEventListener('click', stopsbTimer);
@@ -318,7 +320,7 @@ const completeSound = new Audio('./media/wow.mp3');
         const today = new Date();
         const yyyy = today.getFullYear();
         const mm = String(today.getMonth() + 1).padStart(2, "0");
-        const dd = String(today.getDate() + 1).padStart(2, "0");
+        const dd = String(today.getDate()).padStart(2, "0");
         const formattedDate = `${yyyy}-${mm}-${dd}`;
 
         if (dateInput) {
