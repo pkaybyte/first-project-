@@ -698,15 +698,15 @@ button:hover {
   background-color: #fea94f;
  }
 
-#start:hover{
+#pm-start:hover{
   background-color: green;;
 }
 
-#stop:hover {
+#pm-stop:hover {
   background-color: red;
 }
 
-#reset:hover{
+#pm-reset:hover{
   background-color: grey;
 }
 
